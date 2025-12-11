@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ang">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souvenirs - Réservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(undersea.png);
+            color: #004d40;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #0b7ba0; 
+            margin-bottom: 30px;
+        }
+
+        /* --- Style du Tableau des Souvenirs --- */
+        #souvenir-table {
+            width: 80%;
+            margin: 0 auto 40px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        #souvenir-table th, #souvenir-table td {
+            border: 1px solid #b2dfdb;
+            padding: 12px;
+            text-align: left;
+        }
+        #souvenir-table th {
+            background-color: #1f6454; /* Vert turquoise */
+            color: white;
+            text-transform: uppercase;
+        }
+        #souvenir-table tr:nth-child(even) {
+            background-color: #e0f2f1; /* Ligne alternative */
+        }
+        /* Style des images dans le tableau (Implémentation de l'effet CSS pour les images) */
+        #souvenir-table img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s; /* Effet CSS varié */
+        }
+        #souvenir-table img:hover {
+            transform: scale(1.1); /* Zoom au survol */
+            box-shadow: 0 0 15px #ff6e40;
+        }
+
+        /* --- Style du Formulaire de Réservation --- */
+        #booking-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            text-align: left;
+        }
+        #booking-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #004d40;
+        }
+        #booking-form input[type="text"], 
+        #booking-form input[type="date"], 
+        #booking-form input[type="number"], 
+        #booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        #booking-form button {
+            background-color: #ff6e40;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #booking-form button:hover {
+            background-color: #e65100;
+        }
+
+        /* --- Style du Reçu (Receipt) --- */
+        #receipt {
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px dashed #00897b;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            text-align: left;
+            display: none; /* Masqué par défaut */
+        }
+        #receipt h2 {
+            text-align: center;
+            color: #00897b;
+            border-bottom: 2px solid #00897b;
+            padding-bottom: 10px;
+        }
+        .receipt-total {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: right;
+            color: #ff6e40;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="border-bottom: 3px solid #0b7ba0;">Souvenirs</h1> <table id="souvenir-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Article</th>
+                <th>Description</th>
+                <th>Price (RM)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color: #c8e6c9;"> <td>
+
+[Image of Children's story book]
+</td>
+                <td>history book</td>
+                <td>An illustrated book about educational adventures.</td>
+                <td data-price="25.00">25.00</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Animal Plush</td>
+                <td>Soft and hypoallergenic plush toy of a friendly animal.</td>
+                <td data-price="45.50">45.50</td>
+            </tr>
+            <tr>
+                <td>
+
+[Image of Educational wooden puzzle]
+</td>
+                <td>Wooden Puzzle</td>
+                <td>A construction game that stimulates logic.</td>
+                <td data-price="30.00">30.00</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Mini Flag of the World</td>
+                <td>Collection of miniature flags for learning geography.</td>
+                <td data-price="12.90">12.90</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <section id="booking-section">
+        <h2 style="color: #004d40;">Réservation form</h2> <form id="booking-form">
+            
+            <label for="booking-date">Booking date :</label>
+            <input type="date" id="booking-date" required>
+            
+            <label for="name">Full name :</label>
+            <input type="text" id="name" placeholder="Your name" required>
+
+            <label for="address">Delivery adress :</label>
+            <input type="text" id="address" placeholder="Street, City, Post code" required>
+
+            <label for="phone">Telephone number :</label>
+            <input type="text" id="phone" placeholder="Ex: 012-3456789" pattern="[0-9\-]+" required>
+
+            <label for="item-selected">Selected article :</label>
+            <select id="item-selected" required>
+                <option value="">Select an article</option>
+                <option value="History book">History book (RM 25.00)</option>
+                <option value="Animal plush">Animal plush (RM 45.50)</option>
+                <option value="Wooden puzzle ">Wooden puzzle (RM 30.00)</option>
+                <option value="Mini flags">Mini flags (RM 12.90)</option>
+            </select>
+
+            <label for="quantity">Quantity :</label>
+            <input type="number" id="quantity" min="1" value="1" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <div id="receipt">
+        <h2>Reçu de Réservation</h2>
+        <p><strong>Date:</strong> <span id="receipt-date"></span></p>
+        <p><strong>Name :</strong> <span id="receipt-name"></span></p>
+        <p><strong>Adress :</strong> <span id="receipt-address"></span></p>
+        <p><strong>Phone number :</strong> <span id="receipt-phone"></span></p>
+        <p><strong>Article :</strong> <span id="receipt-item"></span></p>
+        <p><strong>Quantity :</strong> <span id="receipt-quantity"></span></p>
+        <div class="receipt-total">
+            Total amount: <span id="receipt-total-amount"></span>
+        </div>
+        <p>Thank you see you soon !</p>
+    </div>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche l'envoi standard du formulaire
+
+            // Récupérer les valeurs du formulaire 
+            const bookingDate = document.getElementById('booking-date').value;
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const itemSelected = document.getElementById('item-selected');
+            const itemName = itemSelected.options[itemSelected.selectedIndex].text.split(' (RM')[0];
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            // Définir les prix
+            const prices = {
+                "Livre d'Histoires": 25.00,
+                "Peluche Animale": 45.50,
+                "Puzzle en Bois": 30.00,
+                "Mini Drapeau du Monde": 12.90
+            };
+
+            // Calculer le total 
+            const unitPrice = prices[itemName];
+            const totalAmount = unitPrice * quantity;
+            const totalAmountFormatted = totalAmount.toFixed(2) + " RM";
+
+            // Afficher les informations dans le reçu 
+            document.getElementById('receipt-date').textContent = bookingDate;
+            document.getElementById('receipt-name').textContent = name;
+            document.getElementById('receipt-address').textContent = address;
+            document.getElementById('receipt-phone').textContent = phone;
+            document.getElementById('receipt-item').textContent = itemName;
+            document.getElementById('receipt-quantity').textContent = quantity;
+            document.getElementById('receipt-total-amount').textContent = totalAmountFormatted;
+
+            // Afficher le reçu
+            document.getElementById('receipt').style.display = 'block';
+
+            // Optionnel: Réinitialiser le formulaire après soumission
+            // document.getElementById('booking-form').reset();
+            // document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>

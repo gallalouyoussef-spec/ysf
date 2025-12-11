@@ -1,0 +1,207 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leçons Enfants</title>
+    <style> 
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url(undersea.png);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+
+
+        /* Conteneur des onglets (boutons) */
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #7cc1de;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style des boutons d'onglet */
+        .tab-button {
+            background-color: #0b7ba0; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .tab-button:hover {
+            background-color: #007bff;
+            transform: translateY(-2px); /* Petit effet de soulèvement */
+        }
+
+        .tab-button.active {
+            background-color: #007bff; 
+        } /* Correction : fermeture de la règle du .active */
+
+        /* Contenu de la leçon */
+        .lesson-content {
+            background-color: #0b7ba0;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            text-align: left;
+        }
+
+        .lesson-content h2 {
+            color: #a6cadc;
+            border-bottom: 2px solid #a6cadc;
+            padding-bottom: 5px;
+        }
+
+        /* Masquer toutes les leçons par défaut */
+        .lesson {
+            display: none;
+        }
+
+        /* Afficher la leçon active */
+        .lesson.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs-container">
+        <button class="tab-button active" onclick="showLesson('alphabets')">Alphabets</button>
+        <button class="tab-button" onclick="showLesson('animals')">Animals</button>
+        <button class="tab-button" onclick="showLesson('objets')">Objets</button>
+        <button class="tab-button" onclick="showLesson('flags')">Flags</button>
+    </div>
+
+    <div class="lesson-content">
+        
+        <div id="alphabets" class="lesson active" style="border-left: 5px solid #a6cadc;"> <h2>Lesson :Alphabets</h2>
+            <p>Learn all letters from A to Z !</p>
+            <ul>
+                <li>**A** like **A**rm</li>
+                <li>**B** like **B**all</li>
+                <li>**C** like **C**yber</li>
+                <li>**D** like **D**ad</li>
+                <li>**E** like **E**gg</li>
+                <li>**F** like **F**oot</li>
+                <li>**G** like **G**eant</li>
+                <li>**H** like **H**ope</li>
+                <li>**I** like **I**mmortal</li>
+                <li>**J** like **J**ump</li>
+                <li>**K** like **K**ey</li>
+                <li>**L** like **L**ight</li>
+                <li>**M** like **M**om</li>
+                <li>**N** like **N**ice</li>
+                <li>**O** like **O**ctober</li>
+                <li>**P** like **P**icture</li>
+                <li>**Q** like **Q**ueen</li>
+                <li>**R** like **R**ice</li>
+                <li>**S** like **S**weet</li>
+                <li>**T** like **T**win</li> <li>**U** like **U**se</li>
+                <li>**V** like **V**irous</li>
+                <li>**W** like **W**orld</li>
+                <li>**X** like **X**avier</li>
+                <li>**Y** like **Y**oung</li>
+                <li>**Z** like **Z**oo</li>
+            </ul>
+            <p>Attention! some letters can be pronounced in defferent ways
+                <br>C: like S example cinema or like K example cat 
+                <br>U: like A example run
+                <br>G: like J example gym or can be like in the world ghost
+                <br>combinated letters: th can be pronounced defferently; there or thanks
+            </p>
+        </div>
+
+        <div id="animals" class="lesson">
+            <h2>lesson: Animals</h2>
+            <p style="font-style: italic;">Discover the animals</p> <ul>
+                <li>Lion🦁</li>
+                <li>Dog🐶</li>
+                <li>Cat🐱</li>
+                <li>Fish🐟</li>
+                <li>Snake🐍</li>
+                <li>Cow🐄</li>
+                <li>horse🐴</li>
+                <li>bird🐦</li>
+            </ul>
+            <p>GOOD JOB!!</p>
+        </div>
+
+        <div id="objets" class="lesson">
+            <h2>Lesson: Objets</h2>
+            <p>Identify these objects.</p>
+            <ul>
+                <li>a chair🪑</li>
+                <li>a book📚</li>
+                <li>a pen🖊️</li>
+                <li>shoes👟</li>
+                <li>a camera📸</li>
+                <li>a doll🧸</li>
+                <li>a t-shirt👕</li>
+            </ul>
+            <p>GOOD JOB</p>
+        </div>
+
+        <div id="flags" class="lesson"> 
+            <h2>Lesson: Flags</h2>
+            <p>Travel over the world with us!</p>
+            <p>who are these countries :
+                <br>USA
+                <br>ENGLAND
+                <br>FRANCE
+                <br>MALAYSIA <br>ITALY
+                <br>SPAIN
+                <br>TUNISIA
+                <br>GERMANY
+                <br>RUSSIA
+                <br>JAPAN
+                <br>CHINA
+            </p>
+            
+            <p>WOW ECXELLENT</p>
+        </div>
+
+    </div>
+
+    <script>
+        function showLesson(lessonId) {
+            // 1. Masquer toutes les leçons
+            const lessons = document.querySelectorAll('.lesson');
+            lessons.forEach(lesson => {
+                lesson.classList.remove('active');
+            });
+
+            // 2. Désactiver tous les boutons (enlever la classe 'active')
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // 3. Afficher la leçon demandée (ajouter la classe 'active' à la leçon correspondante)
+            const activeLesson = document.getElementById(lessonId);
+            if (activeLesson) {
+                activeLesson.classList.add('active');
+            }
+
+            // 4. Activer le bouton correspondant (ajouter la classe 'active' au bouton cliqué)
+            const activeButton = document.querySelector(`.tab-button[onclick="showLesson('${lessonId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
